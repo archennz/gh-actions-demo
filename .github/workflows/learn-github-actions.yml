@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+# Name that will appear in the UI
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+
+# trigger for the workflow
+# 
+on: [push]
+
+
+jobs:
+
+# name of job
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
