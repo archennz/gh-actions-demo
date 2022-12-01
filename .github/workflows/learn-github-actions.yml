@@ -53,6 +53,7 @@ jobs:
   # a job that grabs some artifacts
   save-output-job:
     name: Save output
+    runs-on: ubuntu-latest
     steps:
       - shell: bash
         run: |
@@ -65,6 +66,7 @@ jobs:
 
   download-output:
     needs: save-output-job
+    runs-on: ubuntu-latest
     name: Download output
     steps:
       - uses: actions/download-artifact@v3
