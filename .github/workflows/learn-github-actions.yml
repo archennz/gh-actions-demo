@@ -29,8 +29,11 @@ jobs:
     runs-on: ubuntu-latest
     # that depends on another job
     needs: check-bats-version
+    # environment variables
+    env:
+      Greeting: Hello
     steps:
-      - run: echo "Another job"
+      - run: echo "$Hello"
 
   # a job that runs over a matrix of inputs
   matrix-job:
@@ -42,3 +45,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ matrix.number-one }}"
+      - run: ./check-even.bash ${{matrix.number-one}}
