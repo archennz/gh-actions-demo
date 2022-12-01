@@ -49,3 +49,24 @@ jobs:
       - name: Run check even
         run: ./check-even.bash ${{ matrix.number-one }}
         shell: bash
+
+  # a job that grabs some artifacts
+  save-output-job:
+    name: Save output
+    steps:
+      - shell: bash
+        run: |
+          expr 1 + 1 > output.log
+      - name: Upload output file
+        uses: actions/upload-artifact@v3
+        with: 
+          name: output-log-file
+          path: output.log
+
+  download-output:
+    needs: save-output-job
+    name: Download output
+    steps:
+      - uses: actions/download-artifact@v3
+        with: 
+          name: output-log-file
