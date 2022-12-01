@@ -25,6 +25,16 @@ jobs:
       - run: bats -v
   
   another-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Another job"
+
+  check-odd-job:
+    strategy:
+      fail-fast: true
+      matrix:
+        number-one: [1,2,3]
+        number-two: [4,5,6]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ matrix.number-one }}"
