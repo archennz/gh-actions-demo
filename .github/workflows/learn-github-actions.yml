@@ -46,4 +46,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "${{ matrix.number-one }}"
-      - run: ./check-even.bash ${{ matrix.number-one }}
+      - name: Run check even
+        run: ./check-even.bash ${{ matrix.number-one }}
+        shell: bash
