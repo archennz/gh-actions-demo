@@ -16,7 +16,9 @@ jobs:
     steps:
       # executes an action
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      # executes an action with a name
+      - name: Set up node action
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: npm install -g bats
