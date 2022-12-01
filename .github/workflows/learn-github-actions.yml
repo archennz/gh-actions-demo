@@ -33,7 +33,7 @@ jobs:
     env:
       Greeting: Hello
     steps:
-      - run: echo "$Hello"
+      - run: echo $Greeting
 
   # a job that runs over a matrix of inputs
   matrix-job:
