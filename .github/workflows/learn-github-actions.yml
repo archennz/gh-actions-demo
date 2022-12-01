@@ -42,6 +42,7 @@ jobs:
       matrix:
         number-one: [1,2,3]
     runs-on: ubuntu-latest
+    needs: another-job
     steps:
       - uses: actions/checkout@v3
       - run: echo "${{ matrix.number-one }}"
