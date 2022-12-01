@@ -44,5 +44,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ matrix.number-one }}"
-      - run: |
-        ./check-even.bash ${{ matrix.number-one }}
+      - run: ./check-even.bash ${{ matrix.number-one }}
